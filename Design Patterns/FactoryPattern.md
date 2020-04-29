@@ -26,6 +26,9 @@ public class Program
 {
   public static void Main()
   {
+    var rndCar = new RandomCarFactory().Manufacture("EV");
+    Console.WriteLine($"Make: {rndCar.Make} - Model: {rndCar.Model}");
+
     var car = new HondaFactory().Manufacture("Amaze");
     
     Console.WriteLine($"Make: {car.Make} - Model: {car.Model}");
@@ -33,6 +36,7 @@ public class Program
     var car2 = new FordFactory().Manufacture("Amaze");
     
     Console.WriteLine($"Make: {car2.Make} - Model: {car2.Model}");
+
   }
     
 }
@@ -76,6 +80,18 @@ public class FordFactory : ICarFactory
   public ICar Manufacture(string model)
   {
     return new Ford { Make = nameof(Ford), Model = model };
+  }
+}
+
+public class RandomCarFactory : ICarFactory
+{
+  public ICar Manufacture(string model)
+  {
+    var rnd = new Random().Next(0,10);
+    if(rnd % 2 == 0)
+      return new Ford { Make = nameof(Ford), Model = model };
+    else
+      return new Honda { Make = nameof(Honda), Model = model };
   }
 }
 #endregion
