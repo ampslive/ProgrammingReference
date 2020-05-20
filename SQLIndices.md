@@ -48,4 +48,4 @@ A operation that will retrieve fewer number of rows based on an index
 
 ## Using Include
 - A `Non Clustered Index` can also be created efficiently by creating a `Non Clustered Index` for the index column (eg. EmployeeId) and using `Include` to add values (ed. EmployeeFirstName, EmployeeLastName) which will get stored along with the index column.
-- This avoids the unnecessary costs of adding `non-clusterd indices` to fields that actually do not need to be indexed but is always retrieved along with the `non-Clustered Index`
+- This avoids the unnecessary costs of adding `Non Clustered indices` to fields that actually do not need to be indexed but is always retrieved along with the `Non Clustered Index`
